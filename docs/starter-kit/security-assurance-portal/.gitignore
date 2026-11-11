@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+.claude/settings.local.json
+evals/answers/raw/
+node_modules/
+dist/
+build/
+.DS_Store
