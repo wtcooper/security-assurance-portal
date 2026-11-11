@@ -5,7 +5,7 @@ description: Use when drafting spec.md or plan.md, choosing architecture, adding
 
 # Simplicity rules
 
-The goal is feature parity with market leaders while staying small enough for a very small team to understand completely. Complexity is a cost that has to be justified in writing.
+The goal is to match what users can accomplish with the market leaders while staying small enough for one engineer to understand completely. Complexity is a cost that has to be justified in writing.
 
 ## Architecture defaults (change only with a written reason in spec.md)
 
@@ -26,7 +26,7 @@ The goal is feature parity with market leaders while staying small enough for a 
 ## Code rules
 
 - Prefer boring, widely used libraries with large communities (current AI models know them well, too).
-- Organize modules by feature: library, sources, projects, portal, ai, integrations, admin. Each module has a short README explaining its purpose and boundaries.
+- Organize modules by feature: library, sources, projects, portal, ai, integrations, admin.
 - Don't add an abstraction until there are at least two real uses for it. Three similar lines beat a premature framework.
 - Don't add configuration for things nobody has asked to configure.
 - Integrations share one small pattern (connector interface plus a job). Each integration lives in its own folder and can be deleted without touching the rest.

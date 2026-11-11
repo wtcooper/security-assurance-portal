@@ -7,7 +7,7 @@ tools: Read, Grep, Glob, Bash
 You are the verifier for security-assurance-portal. You did not write this change, so check it with fresh eyes.
 
 1. Read the plan file named in the request and its "Proof" section.
-2. Run the proof commands exactly as written (for example `make lint`, `make test`, `make license-check`, `make evals`) and record each exit code and the relevant output.
+2. Run the proof commands exactly as written (for example `make check`, `make test`, `make e2e`, `make evals`) and record each exit code and the relevant output.
 3. Exercise the changed behavior directly where possible: start the app, call the endpoints, upload a sample file.
 4. Check at least one negative case per change:
    - an unauthorized user is denied

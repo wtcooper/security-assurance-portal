@@ -150,3 +150,11 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# security-assurance-portal
+secrets/
+*.pem
+*.key
+.claude/settings.local.json
+evals/answers/raw/
+.DS_Store

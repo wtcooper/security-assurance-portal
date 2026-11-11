@@ -5,12 +5,11 @@ description: Use when drafting spec.md or plan.md, designing or changing anythin
 
 # Security baseline
 
-The trust center hosts our most sensitive assurance documents on the public internet. A breach would undermine the product's whole purpose. Treat security requirements as hard constraints, not suggestions.
+The trust center hosts a company's most sensitive assurance documents on the public internet. A breach would undermine the product's whole purpose. Treat security requirements as hard constraints, not suggestions.
 
 ## Standard
 
 - **OWASP ASVS Level 2** (current version) is the baseline for the whole app. The spec maps each major feature to the relevant ASVS chapters.
-- A **third-party penetration test** before the first public trust center goes live, and after major changes to auth or the portal.
 - **AI-written code is untrusted until reviewed.** Recent studies show AI coding agents most often get authorization logic and SSRF wrong and leave out security headers and CSRF protection. Every one of those gets an explicit test.
 
 ## Required controls
@@ -41,9 +40,8 @@ The trust center hosts our most sensitive assurance documents on the public inte
 
 **Data and secrets**
 - Secrets come only from environment variables or a secret manager. Never commit them, log them or put them in prompts.
-- Encrypt in transit (TLS) and at rest (database and object storage).
-- The LLM provider's terms must say no training on our data, with retention minimized. Record which documents were sent to which provider in the audit log.
-- Backups are encrypted, and restoring them is tested.
+- Record which documents were sent to which LLM provider in the audit log.
+- Backup and restore is documented and covered by a test (acceptance scenario A13).
 
 **Audit**
 - Append-only audit log of logins, permission changes, approvals, access grants and revocations, exports and AI answer approvals. Admins can view and export it.
@@ -51,7 +49,11 @@ The trust center hosts our most sensitive assurance documents on the public inte
 **Supply chain**
 - Pin dependency versions with a lockfile.
 - Run dependency vulnerability scanning and license checks in CI.
-- Use minimal base images and generate an SBOM for each release.
+- Use minimal base images.
+
+## The deployer's side (document it, don't build it)
+
+A penetration test before going public, TLS certificates, encryption at rest, backup schedules, and the LLM provider's no-training and retention terms. The install guide lists these plainly.
 
 ## In spec.md and plan.md
 
