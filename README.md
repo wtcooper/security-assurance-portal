@@ -5,7 +5,7 @@ An open-source, self-hosted platform for proving security and compliance to cust
 - **Response management** — drafts cited answers to RFPs, RFIs, DDQs and security questionnaires, routes gaps to experts, and exports into the buyer's original file.
 - **Trust center** — a public portal with NDA-gated documents, access requests and visitor Q&A.
 
-**Status:** planning. The intent is written; the spec is next. No application code yet.
+**Status:** planning. The intent is accepted and the spec is awaiting the owner's review. No application code yet.
 
 ## How this project is built
 
@@ -23,7 +23,8 @@ The whole intent is built end to end. There are no phased releases. The project 
 ```
 intent/0001-trust-and-response-platform/
   intent.md            what we are building and the success criteria
-  research-notes.md    unverified leads for the spec to check
+  spec.md              requirements, design, test plan and build order
+  research-notes.md    early unverified leads; the spec holds the verified facts
 CLAUDE.md              working rules for AI agents
 REVIEW.md              PR review policy
 evals/answers/         golden set for AI answer quality
