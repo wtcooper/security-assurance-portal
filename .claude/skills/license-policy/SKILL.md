@@ -11,11 +11,13 @@ This project ships under the MIT license, so every component we depend on or cop
 
 MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, PostgreSQL License, Zlib, Unlicense, CC0-1.0, 0BSD.
 
-MPL-2.0 needs case-by-case approval. Record it in the spec or plan as a flagged concern, and use it unmodified only.
+## Allowed as unmodified dependencies only
+
+LGPL (any version) and MPL-2.0, when installed through a package manager and used as published. Never copy, vendor, patch or fork their code into this repo. List each one in the dependency table so it is visible.
 
 ## Not allowed (including transitive dependencies)
 
-GPL (any version), LGPL, AGPL, SSPL, BUSL/BSL, Elastic License, Commons Clause, the Confluent Community License, "source-available" licenses, any "non-commercial" license, CC-BY-NC, and unlicensed code (no license means all rights reserved).
+GPL (any version), AGPL, SSPL, BUSL/BSL, Elastic License, Commons Clause, the Confluent Community License, "source-available" licenses, any "non-commercial" license, CC-BY-NC, and unlicensed code (no license means all rights reserved).
 
 Named examples to avoid: **Comp AI** (AGPLv3, plus a commercial `/ee` directory) and **CISO Assistant** (AGPLv3 community edition, proprietary Pro edition). Do not copy, port, paraphrase or reproduce their code or schemas from memory.
 

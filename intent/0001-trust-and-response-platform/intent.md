@@ -1,7 +1,7 @@
 # Intent: security-assurance-portal — open-source trust center and response platform
 
 - **Owner:** Wade Cooper (accepts this intent, the spec and every merge to main)
-- **Status:** draft — revised 2026-11-11 on the owner's direction; awaiting the owner's acceptance
+- **Status:** accepted by the owner, 2026-11-11
 - **Project name:** `security-assurance-portal`. Functional, no product branding. Each deployment shows its own company name, for example "Acme Trust Center".
 - **License:** MIT. A public open-source project from day one, free for anyone to self-host. It is not a commercial product.
 - **Next artifact:** `spec.md` in this folder
@@ -78,7 +78,7 @@ External services (Slack, Teams, Drive, SharePoint, Confluence, Salesforce, HubS
 
 ### AI answer quality
 
-Measured on a synthetic golden set committed to this repo: a fictional company with its own policies, audit reports and at least 300 questions across Excel, Word, PDF and CSV questionnaires. The same set is the demo data. Thresholds are proposals for the owner to confirm in the spec.
+Measured on a synthetic golden set committed to this repo: a fictional company with its own policies, audit reports and at least 300 questions across Excel, Word, PDF and CSV questionnaires. The same set is the demo data. The owner confirmed these thresholds on 2026-11-11.
 
 | Measure | Threshold |
 |---|---|
@@ -118,6 +118,7 @@ These run against a live model. A fixed, recorded model response set makes scena
 
 **Licensing (hard)**
 - Only permissively licensed components: MIT, Apache-2.0, BSD-2/3-Clause, ISC, PostgreSQL, Zlib. No GPL, AGPL, SSPL, BUSL/BSL, Elastic License, Commons Clause or "source-available" code, including transitive dependencies and copied code.
+- LGPL and MPL-2.0 are allowed only as unmodified dependencies installed through a package manager. Their code is never copied or modified in this repo.
 - No code from Comp AI or CISO Assistant (both AGPLv3), not even reproduced from memory.
 - The same applies to AI model weights and bundled content. Questionnaire frameworks such as SIG are licensed content and are not shipped.
 - Licenses are checked automatically in CI.
@@ -155,6 +156,5 @@ These run against a live model. A fixed, recorded model response set makes scena
 1. **Reuse.** Build new using Probo (MIT) as a reference, fork it, or run it alongside? The lean is to build new: a fork inherits a large GRC codebase and running it alongside means two apps. The spec confirms with evidence.
 2. **Backend language.** One language must cover the app and document parsing. A single small parsing worker is acceptable only if no permissive library exists in the main language.
 3. **LLM provider.** One provider interface. Which providers are supported out of the box, and where do embeddings come from?
-4. **LGPL and MPL-2.0 dependencies.** Currently banned. Recommendation: allow them as unmodified dependencies only, never as copied code, because a blanket ban may block common libraries and does not affect this project's MIT license. Owner decides.
-5. **Framework content.** Which of CAIQ, SIG Lite, VSA and HECVAT allow shipping question IDs or text?
-6. **Portal fill-back.** Which buyer portals to support, and do their terms allow automated filling?
+4. **Framework content.** Which of CAIQ, SIG Lite, VSA and HECVAT allow shipping question IDs or text?
+5. **Portal fill-back.** Which buyer portals to support, and do their terms allow automated filling?
