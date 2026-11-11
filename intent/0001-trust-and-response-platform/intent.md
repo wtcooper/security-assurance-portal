@@ -1,7 +1,7 @@
 # Intent: security-assurance-portal — open-source trust center and response platform
 
 - **Owner:** Wade Cooper (accepts this intent, the spec and every merge to main)
-- **Status:** accepted by the owner, 2026-11-11
+- **Status:** accepted by the owner, 2026-11-11. Amended the same day at the owner's request: internal self-service mode (scenario A14).
 - **Project name:** `security-assurance-portal`. Functional, no product branding. Each deployment shows its own company name, for example "Acme Trust Center".
 - **License:** MIT. A public open-source project from day one, free for anyone to self-host. It is not a commercial product.
 - **Next artifact:** `spec.md` in this folder
@@ -39,7 +39,9 @@ One self-hosted application that does both jobs from a single approved knowledge
 - Library answers mapped to standard framework question IDs (for example CAIQ), within each framework's content license.
 - A browser extension that reads questions from a buyer's web portal and fills approved answers back.
 
-*Trust center (the only surface on the public internet)*
+*Trust center (the only surface that can be on the public internet)*
+- **Two ways to use it, chosen by the deployer.** Public exposure is a single switch, off by default. With it off, nothing is reachable without a staff sign-in and the trust center works as an internal self-service tool. Each portal is marked public or internal.
+- **Internal self-service.** Any signed-in staff member (for example a consultant) can browse the trust center, ask the Q&A for a chosen client audience, and get documents and answers to pass to their client. They only ever receive content cleared for that audience. Each hand-over is recorded against the client, and documents are watermarked with the client's name.
 - A branded public page on the deployer's own domain: certifications, security overview, subprocessors with filtering, policies, FAQs, and an updates feed visitors can subscribe to by email.
 - Per-document visibility (public or restricted), access requests with approval, NDA click-sign with a signature record, time-limited and revocable access, watermarked downloads.
 - Visitor AI Q&A that answers only from content that visitor is allowed to see, with citations.
@@ -72,6 +74,7 @@ The project is done when every item below passes in CI on the main branch. Each 
 | A10 | **Portals.** Two portals with different branding and domains are published; a visitor subscribes to updates. | Each portal shows only its own content. The subscriber receives the next update by email. |
 | A11 | **Analytics and CRM.** Visits, downloads and requests are generated for two accounts. | Analytics show them by account, linked to the matching Salesforce and HubSpot account. |
 | A12 | **Portal fill-back.** The browser extension is run against a sample buyer portal page. | Questions are read, approved answers are filled in, and nothing unapproved is submitted. |
+| A14 | **Internal self-service.** Public exposure is switched off. A consultant signs in, browses an internal portal, asks questions for an NDA client and for a public audience, and takes a restricted document for a named client. | No trust center page, document or Q&A is reachable without a staff sign-in. Answers and documents contain only content cleared for the chosen audience; internal-only content is never offered for hand-over. The hand-over is logged against the client and the document is watermarked with the client's name. Switching public exposure on changes nothing for internal portals. |
 | A13 | **Install and upgrade.** A fresh install from the documented single command; then an upgrade from the previous schema with data present; then backup and restore. | The seeded demo works after install. No data is lost on upgrade or restore. |
 
 External services (Slack, Teams, Drive, SharePoint, Confluence, Salesforce, HubSpot, the identity provider, e-mail) are replaced in CI by local stand-ins that follow each service's documented API. Each integration also has a short manual check against the real service, recorded before the project is called done.
@@ -88,7 +91,7 @@ Measured on a synthetic golden set committed to this repo: a fictional company w
 | Covered questions whose draft matches the accepted answer in substance | at least 80% |
 | Time to draft a 300-question questionnaire on the reference single-machine install | under 10 minutes |
 
-These run against a live model. A fixed, recorded model response set makes scenarios A1–A13 repeatable in CI without a key.
+These run against a live model. A fixed, recorded model response set makes scenarios A1–A14 repeatable in CI without a key.
 
 ### Regression
 
@@ -127,6 +130,7 @@ These run against a live model. A fixed, recorded model response set makes scena
 - One deployable application and one primary backend language.
 - PostgreSQL is the only database: full-text search, pgvector, and a Postgres-backed job queue. S3-compatible object storage for files. No Redis, Kafka, Elasticsearch or separate vector database unless the spec proves the need.
 - Boring, well-documented technology. Fewer, larger, readable modules.
+- The parts are separable: a deployer can run response management alone, the trust center for staff only, or the public trust center, without the unused part being exposed.
 - One organization per deployment. No multi-tenant machinery. Several portals within the organization are supported.
 - Full scope does not mean cloning every competitor screen. Each capability is met by the simplest design that passes its acceptance scenario.
 

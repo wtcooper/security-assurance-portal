@@ -26,7 +26,7 @@ _Filled in when the app is scaffolded._
 
 - `make dev` — run locally
 - `make test` — unit and integration tests
-- `make e2e` — end-to-end acceptance scenarios (A1–A13 in the intent)
+- `make e2e` — end-to-end acceptance scenarios (A1–A14 in the intent)
 - `make evals` — AI answer evals against the golden set
 - `make check` — lint, types, license check, dependency vulnerabilities
 

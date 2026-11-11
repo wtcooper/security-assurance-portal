@@ -12,7 +12,7 @@ The success criteria in `intent.md` are the definition of done. A change is prov
 | Layer | Command | What it proves |
 |---|---|---|
 | Unit and integration | `make test` | Logic and module boundaries, against a real PostgreSQL. Fast feedback only. |
-| End to end | `make e2e` | Acceptance scenarios A1–A13: the real app, driven through a browser or its API, with real PostgreSQL and S3-compatible storage. |
+| End to end | `make e2e` | Acceptance scenarios A1–A14: the real app, driven through a browser or its API, with real PostgreSQL and S3-compatible storage. |
 | AI answer evals | `make evals` | Answer quality on the golden set against the intent's thresholds. |
 | Security | part of `make test` and `make e2e` | Authorization for every role on every route, SSRF, CSRF, security headers. |
 

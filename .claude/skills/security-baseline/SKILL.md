@@ -19,6 +19,7 @@ The trust center hosts a company's most sensitive assurance documents on the pub
 - Use deny-by-default authorization checks in one central place. Every endpoint, resolver, job and file download goes through it.
 - Every protected route has a test proving an unauthorized user gets a 403/404.
 - Trust center visitors are a separate identity class. They can never reach staff APIs.
+- Public exposure is off by default. When it is off, the public routes are not registered at all, so there is nothing to misconfigure.
 
 **Trust center documents**
 - Restricted files are served only through short-lived signed URLs, issued after an authorization check. Never expose public bucket paths.
